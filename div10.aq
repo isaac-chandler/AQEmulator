@@ -1,0 +1,64 @@
+set a, 10;
+set b, a;
+shra b, -1;
+
+set c, a;
+set e, b;
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+
+
+shl c, 1;
+shlc e, 1;
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+
+shl c, 1;
+shlc e, 1;
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+
+shl c, 1;
+shlc e, 1;
+
+add c, a;
+addc e, b;
+shl c, 1;
+shlc e, 1;
+shl c, 1;
+shlc e, 1;
+shl c, 1;
+shlc e, 1;
+sub c, a;
+subb e, b;
+
+shra e, 2;
+sub e, b;
+
+(DONE)
+dec ip;

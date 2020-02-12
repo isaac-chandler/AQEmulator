@@ -1,0 +1,126 @@
+set a, -1;
+set b, 1;
+
+test a, a;
+add:ns ip, 2;
+neg a;
+neg b;
+
+set c, b;
+shra c, -1;
+
+set d, 0;
+set e, 0;
+
+test a, a;
+set:s d, b;
+set:s e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+shl d, 1;
+shlc e, 1;
+rotl a, 1;
+
+add:ns ip, 2;
+add d, b;
+addc e, c;
+rotl a, 1;
+
+(DONE)
+dec ip;

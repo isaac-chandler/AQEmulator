@@ -1,0 +1,803 @@
+0005: INVALID OPCODE; (tictactoe$board)
+
+000e: INVALID OPCODE; (tictactoe$indices)
+
+0074: set c, 0000; (tictactoe$CheckWinner)
+
+0075: set a, c
+0076: add a, 0005
+0078: set a, &a
+0079: comp a, 0020
+007b: jump:z 0097
+
+007d: set a, c
+007e: add a, 0005
+0080: set b, &a
+0081: set a, c
+0082: add a, 0006
+0084: set a, &a
+0085: comp a, b
+0086: jump:nz 0097
+
+0088: set a, c
+0089: add a, 0006
+008b: set b, &a
+008c: set a, c
+008d: add a, 0007
+008f: set a, &a
+0090: comp a, b
+0091: jump:nz 0097
+
+0093: add c, 0005
+0095: set a, &c
+0096: ret
+
+0097: add c, 0003
+0099: comp c, 0009
+009b: jump:b 0075
+
+009d: set c, 0000
+
+009e: set a, c
+009f: add a, 0005
+00a1: set a, &a
+00a2: comp a, 0020
+00a4: jump:z 00c0
+
+00a6: set a, c
+00a7: add a, 0005
+00a9: set b, &a
+00aa: set a, c
+00ab: add a, 0008
+00ad: set a, &a
+00ae: comp a, b
+00af: jump:nz 00c0
+
+00b1: set a, c
+00b2: add a, 0008
+00b4: set b, &a
+00b5: set a, c
+00b6: add a, 000b
+00b8: set a, &a
+00b9: comp a, b
+00ba: jump:nz 00c0
+
+00bc: add c, 0005
+00be: set a, &c
+00bf: ret
+
+00c0: inc c
+00c1: comp c, 0003
+00c3: jump:b 009e
+
+00c5: set a, &0009
+00c7: comp a, 0020
+00c9: jump:z 00ea
+
+00cb: set b, &tictactoe$board(0005)
+00cd: set a, &0009
+00cf: comp a, b
+00d0: jump:nz 00d9
+
+00d2: set b, &0009
+00d4: set a, &000d
+00d6: comp a, b
+00d7: jump:z 00e7
+
+00d9: set b, &0007
+00db: set a, &0009
+00dd: comp a, b
+00de: jump:nz 00ea
+
+00e0: set b, &0009
+00e2: set a, &000b
+00e4: comp a, b
+00e5: jump:nz 00ea
+
+00e7: set a, &0009
+00e9: ret
+
+00ea: set a, 0000
+00eb: ret
+
+00ec: set b, 0000; (tictactoe$CheckDraw)
+
+00ed: set a, b
+00ee: add a, 0005
+00f0: set a, &a
+00f1: comp a, 0020
+00f3: jump:nz 00f7
+
+00f5: set a, 0000
+00f6: ret
+
+00f7: inc b
+00f8: comp b, 0009
+00fa: jump:b 00ed
+
+00fc: set a, 0001
+00fd: ret
+
+00fe: INVALID OPCODE; (Memory$heap)
+
+00ff: set e, 04c2; (Memory$_Init)
+0101: set &Memory$heap(00fe), e
+0103: set b, &Memory$heap(00fe)
+0105: set a, 04c3
+0107: neg a
+0108: set &b, a
+0109: set a, &Memory$heap(00fe)
+010b: inc a
+010c: set &a, 0000
+010d: ret
+
+010e: add c, a; (MemoryCopy)
+010f: comp a, c
+0110: ret:ae
+
+0111: set d, &b
+0112: set &a, d
+0113: inc b
+0114: inc a
+0115: comp a, c
+0116: jump:b 0111
+
+0118: ret
+
+0119: add b, a; (MemorySet)
+011a: comp a, b
+011b: ret:ae
+
+011c: set &a, c
+011d: inc a
+011e: comp a, b
+011f: jump:b 011c
+
+0121: ret
+
+0122: add b, a; (MemoryZero)
+0123: comp a, b
+0124: ret:ae
+
+0125: set &a, 0000
+0126: inc a
+0127: comp a, b
+0128: jump:b 0125
+
+012a: ret
+
+012b: set d, a; (MemoryCompare)
+012c: add c, a
+012d: comp a, c
+012e: jump:ae 0140
+
+0130: set e, &a
+0131: set &(fp+0001), e
+0132: set e, &b
+0133: set &fp, e
+0134: set e, &fp
+0135: push a
+0136: set a, &(fp+0001)
+0137: comp e, a
+0138: pop a
+0139: jump:nz 0140
+
+013b: inc a
+013c: inc b
+013d: comp a, c
+013e: jump:b 0130
+
+0140: sub d, a
+0141: set a, d
+0142: ret
+
+0143: test b, b; (Memory$AllocBlock)
+0144: jump:nz 0148
+
+0146: set a, 0000
+0147: ret
+
+0148: inc a
+0149: comp a, c
+014a: jump:ae 015b
+
+014c: add a, b
+014d: set &b, c
+014e: sub c, a
+014f: add c, b
+0150: set &a, c
+0151: set e, a
+0152: inc e
+0153: set &fp, e
+0154: set c, b
+0155: inc c
+0156: set c, &c
+0157: set e, &fp
+0158: set &e, c
+0159: jump 015e
+
+015b: set a, b
+015c: inc a
+015d: set a, &a
+
+015e: test d, d
+015f: jump:z 0165
+
+0161: inc d
+0162: set &d, a
+0163: jump 0167
+
+0165: set &Memory$heap(00fe), a
+
+0167: inc b
+0168: set a, b
+0169: ret
+
+016a: set b, &Memory$heap(00fe); (FastAlloc)
+016c: test b, b
+016d: jump:z 0181
+
+016f: set c, 0000
+0170: set d, 0000
+0171: test b, b
+0172: jump:z 017e
+
+0174: set c, &b
+0175: comp a, c
+0176: jump:be 017e
+
+0178: set d, b
+0179: inc b
+017a: set b, &b
+017b: test b, b
+017c: jump:nz 0174
+
+017e: call Memory$AllocBlock(0143)
+0180: ret
+
+0181: set a, 0000
+0182: ret
+
+0183: set d, &Memory$heap(00fe); (MemoryAlloc)
+0185: test d, d
+0186: jump:z 01aa
+
+0188: set e, 0000
+0189: set &(fp+0002), e
+018b: set c, FFFF
+018c: set e, 0000
+018d: set &(fp+0001), e
+018e: set &fp, 0000
+018f: test d, d
+0190: jump:z 01a4
+
+0192: set b, &d
+0193: comp a, b
+0194: jump:a 019e
+
+0196: comp b, c
+0197: jump:ae 019e
+
+0199: set e, &(fp+0001)
+019a: set &fp, e
+019b: set &(fp+0002), d
+019d: set c, b
+
+019e: set &(fp+0001), d
+019f: inc d
+01a0: set d, &d
+01a1: test d, d
+01a2: jump:nz 0192
+
+01a4: set b, &(fp+0002)
+01a6: set d, &fp
+01a7: call Memory$AllocBlock(0143)
+01a9: ret
+
+01aa: set a, 0000
+01ab: ret
+
+01ac: push a; (ZeroMemoryAlloc)
+01ad: call MemoryAlloc(0183)
+01af: set b, a
+01b0: pop a
+01b1: push b
+01b2: swap a, b
+01b3: call MemoryZero(0122)
+01b5: pop b
+01b6: set a, b
+01b7: ret
+
+01b8: dec a; (MemoryDeAlloc)
+01b9: set d, &Memory$heap(00fe)
+01bb: set b, 0000
+01bc: comp a, d
+01bd: jump:be 01c5
+
+01bf: set b, d
+01c0: inc d
+01c1: set d, &d
+01c2: comp a, d
+01c3: jump:a 01bf
+
+01c5: test b, b
+01c6: jump:z 01cc
+
+01c8: inc b
+01c9: set &b, a
+01ca: jump 01ce
+
+01cc: set &Memory$heap(00fe), a
+
+01ce: set b, a
+01cf: add b, 0000
+01d0: set b, &b
+01d1: add b, a
+01d2: comp b, d
+01d3: jump:nz 01e6
+
+01d5: set e, a
+01d6: add e, 0000
+01d7: set &fp, e
+01d8: set c, &fp
+01d9: set &c, c
+01da: set b, d
+01db: add b, 0000
+01dc: set b, &b
+01dd: inc b
+01de: add c, b
+01df: set e, &fp
+01e0: set &e, c
+01e1: inc a
+01e2: inc d
+01e3: set b, &d
+01e4: set &a, b
+01e5: ret
+
+01e6: inc a
+01e7: set &a, d
+01e8: ret
+
+01e9: set d, a; (StringLength)
+01ea: set b, &a
+01eb: test b, b
+01ec: jump:z 01f3
+
+01ee: inc a
+01ef: set c, &a
+01f0: test c, c
+01f1: jump:nz 01ee
+
+01f3: sub a, d
+01f4: ret
+
+01f5: set c, a; (StringEqual)
+01f6: inc a
+01f7: set d, &c
+01f8: set c, b
+01f9: inc b
+01fa: set c, &c
+01fb: set &fp, d
+01fc: test d, d
+01fd: jump:nz 0200
+
+01ff: set &fp, c
+
+0200: set e, &fp
+0201: jump:z 0216
+
+0203: comp c, d
+0204: jump:z 0208
+
+0206: set a, 0000
+0207: ret
+
+0208: set c, a
+0209: inc a
+020a: set d, &c
+020b: set c, b
+020c: inc b
+020d: set c, &c
+020e: set &fp, d
+020f: test d, d
+0210: jump:nz 0213
+
+0212: set &fp, c
+
+0213: set e, &fp
+0214: jump:nz 0203
+
+0216: set a, 0001
+0217: ret
+
+0218: set d, a; (StringCopy)
+0219: inc a
+021a: set c, b
+021b: inc b
+021c: set c, &c
+021d: set &d, c
+021e: test c, c
+021f: ret:z
+
+0220: set d, a
+0221: inc a
+0222: set c, b
+0223: inc b
+0224: set c, &c
+0225: set &d, c
+0226: test c, c
+0227: jump:nz 0220
+
+0229: ret
+
+022a: set c, &a; (StringAppend)
+022b: test c, c
+022c: jump:z 0233
+
+022e: inc a
+022f: set c, &a
+0230: test c, c
+0231: jump:nz 022e
+
+0233: call StringCopy(0218)
+0235: ret
+
+0236: set d, a; (StringFirst)
+0237: set c, &a
+0238: test c, c
+0239: jump:z 0246
+
+023b: comp b, c
+023c: jump:nz 0241
+
+023e: sub d, a
+023f: set a, d
+0240: ret
+
+0241: inc a
+0242: set c, &a
+0243: test c, c
+0244: jump:nz 023b
+
+0246: set a, FFFF
+0247: ret
+
+0248: set &fp, a; (StringLast)
+0249: set d, FFFF
+024a: set c, &a
+024b: test c, c
+024c: jump:z 0258
+
+024e: comp b, c
+024f: jump:nz 0253
+
+0251: set d, &fp
+0252: sub d, a
+
+0253: inc a
+0254: set c, &a
+0255: test c, c
+0256: jump:nz 024e
+
+0258: set a, d
+0259: ret
+
+025a: set a, fff9; (Test$_Main)
+025c: ret
+
+025d: INVALID OPCODE; (Test$scopeVar)
+
+025e: push a; (Test$ShuffleTest)
+025f: push b
+0260: push c
+0261: push d
+0262: call Test$ShuffleTest(025e)
+0264: pop d
+0265: pop c
+0266: pop b
+0267: pop a
+0268: call Test$ShuffleTest(025e)
+026a: call Test$ShuffleTest(025e)
+026c: ret
+
+026d: set a, 0011; (Test$ScopeTest)
+026f: call ZeroMemoryAlloc(01ac)
+0271: set a, &Test$scopeVar(025d)
+0273: ret
+
+0274: ret; (Test$derefTest)
+
+0275: set c, 0000; (Test$Sum)
+0276: set b, 0000
+0277: chck a
+0278: jump:le 027f
+
+027a: add c, b
+027b: inc b
+027c: comp a, b
+027d: jump:g 027a
+
+027f: set a, c
+0280: ret
+
+0281: out a; (PrintChar)
+0282: out 0000
+0283: ret
+
+0284: out a; (WriteOutput)
+0285: ret
+
+0286: in a; (ReadInput)
+0287: ret
+
+0288: set c, ip; (ReadChar)
+0289: in a
+028a: jump:z c
+028b: set c, ip
+028c: in b
+028d: jump:nz c
+028e: ret
+
+028f: set b, 0008; (Clear)
+0291: set c, ip
+0292: out b
+0293: out 0000
+0294: dec a
+0295: jump:nz c
+0296: ret
+
+0297: add b, a; (ReadLine)
+0298: dec b
+0299: comp a, b
+029a: jump:ae 02b1
+
+029c: push a
+029d: push b
+029e: call ReadChar(0288)
+02a0: set c, a
+02a1: push c
+02a2: set a, c
+02a3: call PrintChar(0281)
+02a5: pop c
+02a6: pop b
+02a7: pop a
+02a8: comp c, 000a
+02aa: jump:z 02b1
+
+02ac: set &a, c
+02ad: inc a
+02ae: comp a, b
+02af: jump:b 029c
+
+02b1: set &a, 0000
+02b2: ret
+
+02b3: set c, &a; (PrintString)
+02b4: test c, c
+02b5: ret:z
+
+02b6: push a
+02b7: set a, c
+02b8: call PrintChar(0281)
+02ba: pop a
+02bb: inc a
+02bc: set c, &a
+02bd: test c, c
+02be: jump:nz 02b6
+
+02c0: ret
+
+02c1: set b, 0000; (tictactoe$PrintBoard)
+
+02c2: set a, b
+02c3: inc b
+02c4: add a, 0005
+02c6: set a, &a
+02c7: push b
+02c8: call PrintChar(0281)
+02ca: set a, 007c
+02cc: call PrintChar(0281)
+02ce: pop b
+02cf: set a, b
+02d0: inc b
+02d1: add a, 0005
+02d3: set a, &a
+02d4: push b
+02d5: call PrintChar(0281)
+02d7: set a, 007c
+02d9: call PrintChar(0281)
+02db: pop b
+02dc: set a, b
+02dd: inc b
+02de: add a, 0005
+02e0: set a, &a
+02e1: push b
+02e2: call PrintChar(0281)
+02e4: pop b
+02e5: comp b, 0009
+02e7: jump:z 02f1
+
+02e9: push b
+02ea: set a, 006c
+02ec: call PrintString(02b3)
+02ee: pop b
+02ef: jump 02f6
+
+02f1: push b
+02f2: set a, 000a
+02f4: call PrintChar(0281)
+
+02f6: pop b
+02f7: comp b, 0009
+02f9: jump:b 02c2
+
+02fb: ret
+
+02fc: set b, 0058; (Main)
+02fe: push b
+02ff: call tictactoe$PrintBoard(02c1)
+0301: set a, 0058
+0303: call PrintChar(0281)
+0305: set a, 0017
+0307: call PrintString(02b3)
+
+0309: call ReadChar(0288)
+030b: pop b
+030c: comp a, 0031
+030e: jump:b 035f
+
+0310: comp a, 0039
+0312: jump:a 035f
+
+0314: sub a, 0031
+0316: add a, 000e
+0318: set c, &a
+0319: set a, c
+031a: add a, 0005
+031c: set a, &a
+031d: comp a, 0020
+031f: jump:nz 0309
+
+0321: add c, 0005
+0323: set &c, b
+0324: push b
+0325: set a, 0040
+0327: call Clear(028f)
+0329: call tictactoe$PrintBoard(02c1)
+032b: call tictactoe$CheckWinner(0074)
+032d: pop b
+032e: test a, a
+032f: jump:z 033b
+
+0331: push b
+0332: call PrintChar(0281)
+0334: set a, 0020
+0336: call PrintString(02b3)
+0338: pop b
+0339: jump 0309
+
+033b: push b
+033c: call tictactoe$CheckDraw(00ec)
+033e: pop b
+033f: test a, a
+0340: jump:z 034a
+
+0342: push b
+0343: set a, 003e
+0345: call PrintString(02b3)
+0347: pop b
+0348: jump 0309
+
+034a: comp b, 0058
+034c: jump:nz 0352
+
+034e: set b, 004f
+0350: jump 0354
+
+0352: set b, 0058
+
+0354: push b
+0355: set a, b
+0356: call PrintChar(0281)
+0358: set a, 005a
+035a: call PrintString(02b3)
+035c: pop b
+035d: jump 0309
+
+035f: comp a, 0052
+0361: jump:nz 0382
+
+0363: set b, 0000
+
+0364: set a, b
+0365: add a, 0005
+0367: set &a, 0020
+0369: inc b
+036a: comp b, 0009
+036c: jump:l 0364
+
+036e: set b, 0058
+0370: push b
+0371: set a, 0040
+0373: call Clear(028f)
+0375: call tictactoe$PrintBoard(02c1)
+0377: set a, 0058
+0379: call PrintChar(0281)
+037b: set a, 0063
+037d: call PrintString(02b3)
+037f: pop b
+0380: jump 0309
+
+0382: comp a, 0045
+0384: ret:z
+
+0385: jump 0309
+
+0388: set d, 0000; (Multiply)
+0389: test a, a
+038a: jump:z 0397
+
+038c: set c, a
+038d: and c, 0001
+038e: test c, c
+038f: jump:z 0392
+
+0391: add d, b
+
+0392: shl b, 0001
+0393: shr a, 0001
+0394: test a, a
+0395: jump:nz 038c
+
+0397: set a, d
+0398: ret
+
+0399: comp a, b; (SignedMin)
+039a: jump:ge 039d
+
+039c: ret
+
+039d: set a, b
+039e: ret
+
+039f: comp a, b; (UnsignedMin)
+03a0: jump:ae 03a3
+
+03a2: ret
+
+03a3: set a, b
+03a4: ret
+
+03a5: comp a, b; (SignedMax)
+03a6: jump:le 03a9
+
+03a8: ret
+
+03a9: set a, b
+03aa: ret
+
+03ab: comp a, b; (UnsignedMax)
+03ac: jump:be 03af
+
+03ae: ret
+
+03af: set a, b
+03b0: ret
+
+03b1: comp a, 0001; (Sign)
+03b2: jump:ge 03b6
+
+03b4: shr a, FFFF
+03b5: ret
+
+03b6: set a, 0001
+03b7: ret
+
+03b8: chck a; (Abs)
+03b9: ret:ge
+
+03ba: neg a
+03bb: ret
+
+04c2: INVALID OPCODE; (_binaryEnd)
+

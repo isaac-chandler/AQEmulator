@@ -1,0 +1,95 @@
+set sp, 256;
+
+set e, 23;
+set a, 6;
+
+set b, 0;
+
+push e;
+chck e;
+
+neg:s e;
+test a, a;
+neg:s a;
+
+shl e, 2;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+shl e, 1;
+shlc b, 1;
+sub b, a;
+add:s b, a;
+
+pop e;
+chck e;
+neg:s b;
+
+(DONE)
+dec ip;

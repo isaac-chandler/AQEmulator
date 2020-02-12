@@ -1,0 +1,69 @@
+set a, 6;
+set e, -19;
+set d, a;
+
+chck e;
+set:ns d, 0;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+shl d, 1;
+rotl e, 1;
+
+add:s d, a;
+rotl e, 1;
+
+out d;
